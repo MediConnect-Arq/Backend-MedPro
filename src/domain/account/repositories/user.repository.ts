@@ -59,4 +59,16 @@ export class UserRepository {
     },
     });
   }
+
+  findMedic(id: number, type_user_id: number): Promise<User | null> {
+    return this.prisma.users.findFirst({
+      where: {
+        id: id,
+        type_user_id: type_user_id,
+      },
+      include: {
+        type_user: true,
+      },
+    });
+  }
 }

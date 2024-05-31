@@ -26,11 +26,10 @@ async findAll() {
   }
 
   async update(id: number, data: UpdateChatbotConversationDto) {
-    // Transformar el DTO al formato que espera Prisma
-    const prismaData = {
-      start_date: new Date().toISOString(), // Aquí proporciona la fecha en formato ISO-8601
+     const prismaData = {
+      start_date: new Date().toISOString(),
       end_date: data.end_date,
-      users: { connect: { id: data.user_id } }, // Usar la relación `users` en lugar de `user_id`
+      users: { connect: { id: data.user_id } },
     };
   
     return this.prisma.chatbot_conversations.update({
