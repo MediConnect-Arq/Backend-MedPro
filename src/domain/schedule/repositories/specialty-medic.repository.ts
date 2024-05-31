@@ -40,7 +40,7 @@ export class SpecialtyMedicRepository{
 
     async findOne(id: number){
         return this.prisma.specialty_medic.findUnique({ 
-            where: { id }, 
+            where: { id },
             include: {
                 specialty: true,
                 users: true,
