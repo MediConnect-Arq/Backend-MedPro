@@ -14,7 +14,7 @@ export class UserController {
 
  @Get(':id')
   async findOne(@Param('id') id: string) {
-    const userId = parseInt(id, 10); // Convertir el ID a un número entero
+    const userId = parseInt(id, 10);
     return this.userService.findOne(userId);
   }
 
